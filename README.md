@@ -1,0 +1,2 @@
+- Try for global hashmaps and arraylists
+- Else make a new class register and create a object in it and initialize the user in the User class
