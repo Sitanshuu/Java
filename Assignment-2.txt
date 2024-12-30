@@ -1,0 +1,497 @@
+1.1
+package A2;
+import java.util.Scanner;
+
+
+public class Question1 {
+	public static void main(String[] args) {
+		Scanner Sc = new Scanner(System.in);
+		int n = Sc.nextInt();
+		
+		for (int i=0; i<=n; i++) {
+			if (i%2 == 0) {
+				System.out.println(i);
+			}
+		}
+		
+		Sc.close();
+	}
+}
+
+
+
+
+
+
+
+1.2
+(Rectangle.java)
+package A2;
+
+public class Rectangle {
+	double length;
+	double breadth;
+	
+	public Rectangle (){
+		this.length = 0;
+		this.breadth = 0;		
+	}
+	
+	public Rectangle (double length, double breadth) {
+		this.length = length;
+		this.breadth = breadth;		
+	}
+	
+	public void setRectangle (double length, double breadth) {
+		this.length = length;
+		this.breadth = breadth;		
+	}
+	
+	public void getRectangle () {
+		System.out.println("Length: "+this.length);
+		System.out.println("Breadth: "+this.breadth);		
+	}
+	
+	public double calculateArea (){
+		return this.length * this.breadth;
+	}
+	
+	public void displayInformation (){
+		System.out.println("Length: "+this.length);
+		System.out.println("Breadth: "+this.breadth);
+		System.out.println("Area: "+this.length*this.breadth);	}
+
+}
+
+
+(TestRectangle.java)
+package A2;
+import java.util.Scanner;
+
+public class TestRectangle {
+	public static void main(String[] args) {
+		Scanner Sc = new Scanner(System.in);
+		
+		System.out.print("Enter length: ");
+		double length = Sc.nextDouble();
+		
+		System.out.print("Enter breadth: ");
+		double breadth = Sc.nextDouble();
+		
+		Rectangle newRectangle = new Rectangle(length, breadth);
+		System.out.println("Area: "+newRectangle.calculateArea());
+		
+		System.out.println("");
+		
+		newRectangle.displayInformation();
+		
+		Sc.close();
+	}
+}
+
+
+
+
+
+
+
+1.3
+package A2;
+import java.util.Scanner;
+
+class Book{
+	String bookTitle;
+	double bookPrice;
+	
+	public Book (String bookTitle, double bookPrice){
+		this.bookTitle = bookTitle;
+		this.bookPrice = bookPrice;
+	}
+	
+	public void setBook (String bookTitle, double bookPrice){
+		this.bookTitle = bookTitle;
+		this.bookPrice = bookPrice;		
+	}
+	
+	public void getBook (){
+		System.out.println();
+		System.out.println();		
+	}
+}
+
+public class Question3 {
+	static Scanner Sc = new Scanner(System.in);
+	
+	public static void createBooks (int n, Book bookArr[]){
+		for (int i=0; i<n; i++) {
+			System.out.print("Enter title: ");
+			String name = Sc.next();
+			System.out.print("Enter price: ");
+			double price = Sc.nextDouble();
+			bookArr[i] = new Book(name, price);
+		}	
+	}
+	
+	public static void showBooks (Book bookArr[]){
+		System.out.println(" --------------------------------------------------------");
+		System.out.println("|          Book Title          |          Price          |");
+		System.out.println(" --------------------------------------------------------");
+		for (Book b: bookArr) {
+			System.out.println("    "+b.bookTitle+"\t       |\t  "+b.bookPrice);
+		}
+	}
+	
+	public static void main (String[] args) {
+		System.out.print("Enter n: ");
+		int n = Sc.nextInt();
+		Book bookArr[] = new Book[n];
+		createBooks(n, bookArr);
+		showBooks(bookArr);
+	}
+}
+
+
+
+
+
+
+
+1.4
+(Rectangle.java)
+package A2;
+
+public class Rectangle {
+	double length;
+	double width;
+	
+	public Rectangle (){
+		this.length = 1;
+		this.width = 1;		
+	}
+	
+	public double calculatePerimeter (){
+		return 2*(this.length+this.width);
+	}
+	
+	public double calculateArea (){
+		return this.length * this.width;
+	}
+	
+	public void getLength() {
+		System.out.println("Length: "+length);
+	}
+
+	public void getWidth() {
+		System.out.println("Width: "+width);
+	}
+
+	public void setLength(double length) {
+		if (length > 0.0 && length < 20.0) {
+			this.length = length;			
+		}
+		else {
+			System.out.println("Enter length between (0.0 - 20.0) !!");
+			System.exit(0);
+		}
+	}
+
+	public void setWidth(double width) {
+		if (width > 0.0 && width < 20.0) {
+			this.width = width;			
+		}
+		else {
+			System.out.println("Enter width between (0.0 - 20.0) !!");
+			System.exit(0);
+		}
+	}
+}
+
+
+
+(TestRectangle.java)
+package A2;
+import java.util.Scanner;
+
+public class TestRectangle {
+	public static void main(String[] args) {
+		Scanner Sc = new Scanner(System.in);
+		
+		System.out.print("Enter length: ");
+		double length = Sc.nextDouble();
+		
+		System.out.print("Enter width: ");
+		double width = Sc.nextDouble();
+		
+		Rectangle newRectangle = new Rectangle();
+		newRectangle.setLength(length);
+		newRectangle.setWidth(width);
+		
+		newRectangle.getLength();
+		
+		System.out.println("");
+		
+		newRectangle.getWidth();
+		
+		System.out.println("Area: "+newRectangle.calculateArea());
+		
+		System.out.println("");
+		
+		System.out.println("Perimeter: "+newRectangle.calculatePerimeter());
+		
+		Sc.close();
+	}
+}
+
+
+
+
+
+
+
+1.5
+package A2;
+import java.util.Scanner;
+
+class Date{
+	int day, month, year;
+	
+	public Date () {
+		this.day = 11;
+		this.month = 9;
+		this.year = 2001;
+	}
+	
+	public Date (String date){
+		Scanner Sc = new Scanner(System.in);
+		
+		String day = String.format("%s%s", date.charAt(0), date.charAt(1));
+		int finalDay = Integer.parseInt(day);
+		
+		String month = String.format("%s%s", date.charAt(3), date.charAt(4));
+		int finalMonth = Integer.parseInt(month);
+		
+		String year = String.format("%s%s%s%s", date.charAt(6), date.charAt(7), date.charAt(8), date.charAt(9));
+		int finalYear = Integer.parseInt(year);
+		
+		
+		if (finalDay < 1 && finalDay > 31){
+			System.out.println("Invalid day entered..");
+			return;
+		}
+		if (finalMonth < 1 && finalMonth > 12){
+			System.out.println("Invalid month entered..");
+			return;
+		}
+		if (finalYear < 1970 && finalYear > 3000) {
+			System.out.println("Invalid year entered..");
+			return;
+		}
+		this.day = finalDay;
+		this.month = finalMonth;
+		this.year = finalYear;
+	}
+}
+
+class Employee{
+	int employeeNumber;
+	String employeeName;
+	Date joiningDate;
+	
+	public Employee (int employeeNumber, String employeeName, Date joiningDate){
+		this.employeeNumber = employeeNumber;
+		this.employeeName = employeeName;
+		this.joiningDate = joiningDate;
+	}
+	
+	void getDetails (){
+		System.out.println(this.employeeNumber);
+		System.out.println(this.employeeName);
+		System.out.println(this.joiningDate.day+"/"+this.joiningDate.month+"/"+this.joiningDate.year);		
+	}
+}
+
+public class Question5 {
+	public static void main(String[] args) {
+		Scanner Sc = new Scanner(System.in);
+		for (int i=0; i<2; i++) {
+			System.out.print("Enter employee number: ");
+			int employeeNumber = Sc.nextInt();
+			System.out.print("Enter employee name: ");
+			String employeeName = Sc.next();
+			System.out.print("Enter joining date (Separated by '-'): ");
+			String d = Sc.next();
+			if (d.length() > 0) {
+				Date newDate = new Date(d);
+				Employee newEmployee = new Employee(employeeNumber, employeeName, newDate);
+				newEmployee.getDetails();
+
+			}
+			else {
+				Date newDate = new Date();
+				Employee newEmployee = new Employee(employeeNumber, employeeName, newDate);
+				newEmployee.getDetails();
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+PS-2
+package A2;
+
+class Vehicle{
+	String manufacturer, model;
+	int year;
+	
+	public String getManufacturer() {
+		return manufacturer;
+	}
+	
+	public String getModel() {
+		return model;
+	}
+	
+	public int getYear() {
+		return year;
+	}
+	
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+	
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	void getDetails (){
+		System.out.println("Manufacturer: "+this.manufacturer);
+		System.out.println("Model: "+this.model);
+		System.out.println("Year: "+this.year);
+	}
+}
+
+class Car extends Vehicle{
+	int seatingCapacity;
+
+	public int getSeatingCapacity() {
+		return seatingCapacity;
+	}
+
+	public void setSeatingCapacity(int seatingCapacity) {
+		this.seatingCapacity = seatingCapacity;
+	}
+	
+	@Override
+	void getDetails (){
+		System.out.println("Seating Capacity: "+this.seatingCapacity);
+	}
+	
+	void accelerate (){
+		System.out.println("Car accelerates..");
+	}
+	
+	void brake (){
+		System.out.println("Car brake applied..");
+	}
+}
+
+class Motorcycle extends Vehicle{
+	double engineCapacity;
+
+	public double getEngineCapacity() {
+		return engineCapacity;
+	}
+
+	public void setEngineCapacity(double engineCapacity) {
+		this.engineCapacity = engineCapacity;
+	}
+	
+	@Override
+	void getDetails (){
+		System.out.println("Engine Capacity: "+this.engineCapacity);
+	}
+	
+	void startEngine () {
+		System.out.println("Motorcycle engine starts..");
+	}
+	
+	void stopEngine () {
+		System.out.println("Motorcycle engine stopped..");
+	}
+}
+
+class Truck extends Vehicle{
+	double cargoCapacity;
+
+	public double getCargoCapacity() {
+		return cargoCapacity;
+	}
+
+	public void setCargoCapacity(double cargoCapacity) {
+		this.cargoCapacity = cargoCapacity;
+	}
+	
+	@Override
+	void getDetails (){
+		System.out.println("Cargo Capacity: "+this.cargoCapacity);
+	}
+	
+	void loadCargo (){
+		System.out.println("Cargo loaded..");		
+	}
+	
+	void unloadCargo (){
+		System.out.println("Cargo unloaded..");
+	}
+}
+
+public class ProblemStatement2 {
+	public static void main(String[] args) {
+		Car carObj = new Car();
+		Motorcycle motorcycleObj = new Motorcycle();
+		Truck truckObj = new Truck();
+		
+		carObj.setManufacturer("Hyundai");
+		carObj.setModel("Verna");
+		carObj.setYear(2019);
+		carObj.setSeatingCapacity(4);
+		carObj.accelerate();
+		carObj.brake();
+		carObj.getDetails();
+		
+		
+		motorcycleObj.setManufacturer("Honda");
+		motorcycleObj.setModel("Activa");
+		motorcycleObj.setYear(2024);
+		motorcycleObj.setEngineCapacity(600);
+		motorcycleObj.startEngine();
+		motorcycleObj.stopEngine();
+		motorcycleObj.getDetails();
+		
+		
+		truckObj.setManufacturer("Tata");
+		truckObj.setModel("Dumper");
+		truckObj.setYear(2017);
+		truckObj.setCargoCapacity(2000);
+		truckObj.loadCargo();
+		truckObj.unloadCargo();
+		truckObj.getDetails();
+	}
+}
+
+
+
+
+
+
+
+PS-3
