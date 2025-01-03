@@ -494,4 +494,83 @@ public class ProblemStatement2 {
 
 
 
-PS-3
+PS-4
+package A2;
+
+class Employeee{
+	String name;
+	int point;
+		
+	public String getName() {
+		return name;
+	}
+	
+	public int getPoint() {
+		return point;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setPoint(int point) {
+		this.point = point;
+	}
+}
+
+class PerformanceRating{
+	static int outstanding = 5;
+	static int good = 4;
+	static int average = 3;
+	static int poor = 2;
+	
+	final static void calculatePerformance (Employeee e[]){
+		System.out.println("Total number of employees: "+e.length+" and their ratings are as follows: \n");
+		for (Employeee x: e){
+			if (x.getPoint() >= 80 && x.getPoint() <= 100){
+				System.out.println(x.getName()+" has performed with a rating: "+outstanding);
+				System.out.println("=========================================================");
+			}
+			else if (x.getPoint() >= 60 && x.getPoint() <= 79){
+				System.out.println(x.getName()+" has performed with a rating: "+good);
+				System.out.println("=========================================================");
+			}
+			else if (x.getPoint() >= 50 && x.getPoint() <= 69){
+				System.out.println(x.getName()+" has performed with a rating: "+average);
+				System.out.println("=========================================================");
+			}
+			else {
+				System.out.println(x.getName()+" has performed with a rating: "+poor);
+				System.out.println("=========================================================");
+			}
+		}
+	}
+}
+
+public class PerformanceCalculator {
+	public static void main(String[] args) {
+		
+		Employeee e1 = new Employeee();
+		e1.setName("Sitanshu");
+		e1.setPoint(90);
+		
+		
+		Employeee e2 = new Employeee();
+		e2.setName("Suvam");
+		e2.setPoint(80);
+		
+		
+		Employeee e3 = new Employeee();
+		e3.setName("Aniket");
+		e3.setPoint(70);
+		e3.getPoint();
+		
+		Employeee emp[] = new Employeee[4];
+		emp[0] = e1;
+		emp[1] = e2;
+		emp[3] = e3;
+		
+		PerformanceRating pr = new PerformanceRating();
+		pr.calculatePerformance(emp);
+	}
+}
